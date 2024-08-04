@@ -1,5 +1,5 @@
 {
-  "name": "react-hw-8",
+  "name": "react-hw-7",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "styled-components": "^6.1.12",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://TimurCherin.github.io/react-hw-7/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
