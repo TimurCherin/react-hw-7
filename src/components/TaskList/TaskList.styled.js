@@ -8,12 +8,13 @@ export const List = styled.ul`
     background-color: skyblue;
     flex-direction: column;
     gap: 25px;
+    padding: 10px;
     list-style: none;
 
     li{
         color: purple;
     }
-    
+
     button{
         padding: 3px 15px;
         border: 1px solid purple;
