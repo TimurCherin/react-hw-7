@@ -22,3 +22,12 @@ export const List = styled.ul`
         margin-left: 10px;
     }
 `
+export const TaskForm = styled.form`
+    padding-top: 22px;
+    button{
+            padding: 3px 15px;
+            border: 1px solid purple;
+            border-radius: 25px;
+            margin-left: 10px;
+        }
+`

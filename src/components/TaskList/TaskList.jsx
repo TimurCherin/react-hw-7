@@ -1,5 +1,6 @@
-import { Wrap, List } from "./TaskList.styled";
+import { Wrap, List, TaskForm } from "./TaskList.styled";
 import React, { Component } from "react";
+import { nanoid } from 'nanoid';
 
 export class TaskList extends Component {
     state = {
@@ -31,11 +32,29 @@ export class TaskList extends Component {
         return { tasks: newState }
     })
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const newTask = [{
+            id: nanoid(),
+            text: e.currentTarget.elements.newTask.value
+        }];
+        this.setState(prevState => {
+            const newTasks = { tasks: [...prevState.tasks, ...newTask] }
+            return newTasks
+        })
+        e.currentTarget.elements.newTask.value = ""
+    };
+
     render() {
         return (
-            <Wrap><List>
-                {this.state.tasks.map(({ id, text }) => <li key={id}>{text}<button type="button" onClick={() => { this.delElement(id) }}>del</button></li>)}
-            </List></Wrap>
+            <Wrap>
+                <TaskForm onSubmit={this.handleSubmit}>
+                    <input name="newTask" type="text" placeholder="type new task" />
+                    <button type="submit">Add task</button>
+                </TaskForm>
+                <List>
+                    {this.state.tasks.map(({ id, text }) => <li key={id}>{text}<button type="button" onClick={() => { this.delElement(id) }}>del</button></li>)}
+                </List></Wrap>
         )
     }
 }
